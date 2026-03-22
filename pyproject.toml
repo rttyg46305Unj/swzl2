@@ -1,0 +1,13 @@
+[project]
+name = "libswzl2"
+version = "0.1.0"
+description = "SWZLv2 image encoder/decoder"
+authors = [{name = "Dogo6647"}]
+dependencies = ["pillow"]
+
+[project.scripts]
+swzlr = ".swzlr:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
