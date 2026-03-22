@@ -3,6 +3,8 @@ A simple lossless image format and compact single-file library for it made becau
 i just wanted to make an image format. So yeah, not really designed for efficiency (although 
 it does make an effort to be somewhat small), but for simplicity.
 
+The standard file extensions for this format are `.swzl2` and `.sw2l`.
+
 ## File Spec
 - There's a magic string at the start of the file that contains the letters "SM" and a bit
 that dictates whether the image stores alpha data or not.
@@ -34,6 +36,26 @@ swzlr decode image.swzl2 image.png
 # Inspect swzl2 image properties
 swzlr inspect image.swzl2
 ```
+
+## Library implementations
+### libswzl2.py
+Main SWZLv2 library.
+Supports:
+- `.encode`: Yes
+- `.decode`: Yes
+- `.inspect`: Yes
+- RGBA mode: Yes
+
+### swzl2.js
+SWZLv2 library rewritten in JavaScript for browser environments.
+Supports:
+- `.encode`: Yes
+- `.decode`: Yes
+- `.inspect`: Yes
+- RGBA mode: Yes
+
+Additionally, swzl2.js auto-decodes and renders .swzl2 images inside `<img>` 
+tags when embedded into a website.
 
 ## Where SWZLv1?
 SWZL was a scrapped custom image format for the Nintendo DS port of the 
