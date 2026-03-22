@@ -47,10 +47,10 @@ def build_parser():
     # --- encode ---
     p_encode = subparsers.add_parser(
         "encode",
-        help="Encode an image into .swzl format"
+        help="Encode an image into the SWZLv2 format"
     )
     p_encode.add_argument("input", help="Input image path (png, jpg, etc.)")
-    p_encode.add_argument("output", help="Output .swzl file")
+    p_encode.add_argument("output", help="Output .swzl2 or .sw2l file")
     p_encode.add_argument(
         "-a", "--force-alpha",
         action="store_true",
@@ -61,18 +61,18 @@ def build_parser():
     # --- decode ---
     p_decode = subparsers.add_parser(
         "decode",
-        help="Decode a .swzl file into an image"
+        help="Decode a SWZLv2 file into an image"
     )
-    p_decode.add_argument("input", help="Input .swzl file")
+    p_decode.add_argument("input", help="Input .swzl2 or .sw2l file")
     p_decode.add_argument("output", help="Output image (png recommended)")
     p_decode.set_defaults(func=cmd_decode)
 
     # --- inspect ---
     p_inspect = subparsers.add_parser(
         "inspect",
-        help="Inspect a .swzl file without decoding"
+        help="Inspect a SWZLv2 file without decoding"
     )
-    p_inspect.add_argument("input", help="Input .swzl file")
+    p_inspect.add_argument("input", help="Input .swzl2 or .sw2l file")
     p_inspect.set_defaults(func=cmd_inspect)
 
     return parser
@@ -82,7 +82,7 @@ def main():
     parser = build_parser()
     args = parser.parse_args()
 
-    # basic sanity checks
+    # vibe check
     if hasattr(args, "input") and not Path(args.input).exists():
         print(f"[error] Input file not found: {args.input}")
         sys.exit(1)
