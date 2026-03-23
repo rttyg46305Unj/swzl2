@@ -18,9 +18,15 @@ RGB mode takes up 3 bytes per pixel, RGBA mode takes 4.
 As of now, no compression is implemented whatsoever.
 
 ## How To Use
+On Unix-like:
 ```
 ./install.sh
 ```
+or, on Windows:
+```
+makecommand path\to\swzl2
+```
+
 This repo includes two things:
 - `libswzl2`: The library itself so you can use it anywhere you want.
 - `swzlr` (Swizzler): A CLI for encoding/decoding swzl2 images.
