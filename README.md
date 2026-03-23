@@ -57,6 +57,14 @@ Supports:
 Additionally, swzl2.js auto-decodes and renders .swzl2 images inside `<img>` 
 tags when embedded into a website.
 
+### xswzl2.c
+SWZLv2 viewer implemented in Xlib.
+Supports:
+- `.encode`: No; viewer only
+- `.decode`: Yes
+- `.inspect`: No
+- RGBA mode: Yes
+
 ## Where SWZLv1?
 SWZL was a scrapped custom image format for the Nintendo DS port of the 
 [Scratch Everywhere!](https://github.com/ScratchEverywhere/ScratchEverywhere) project (which i'm a dev in,
