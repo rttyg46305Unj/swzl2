@@ -13,15 +13,20 @@ def geek():
     print('stop itching around')
 
 def encode():
-    confrom = convertfrom.get('1.0', 'end-1c')
-    conto = convertto.get('1.0', 'end-1c')
+    confrom = convfrm.cget('text')
+    conto = convto.cget('text')
     libswzl2.encode(image_path=confrom, output_path=conto)
 
 def decode():
-    confrom = convertfrom.get('1.0', 'end-1c')
-    conto = convertto.get('1.0', 'end-1c')
+    confrom = convfrm.cget('text')
+    conto = convto.cget('text')
     libswzl2.decode(swzl_path=confrom, output_path=conto)
 
+def filf():
+    convfrm.configure(text=filedialog.askopenfilename())
+
+def filt():
+    convto.configure(text=filedialog.asksaveasfilename())
 
 
 # create root window
@@ -32,9 +37,9 @@ root.minsize(270, 300)
 root.maxsize(540, 405)
 root.iconbitmap('swzlr.ico')
 
-rad=3
+rad=5
 cons=("Consolas", 14)
-consb=("Consolas", 16)
+consb=("Consolas Bold", 16)
 hclr1="orange"
 hclr2="#c18634"
 hclr3="#3a2200"
@@ -54,16 +59,20 @@ frame.pack(padx=20, pady=0)
 #ui
 space(frame, 10)
 paragraph(frame, "Convert from")
-convertfrom = CTkTextbox(frame, height=60, corner_radius=rad, font=cons)
-convertfrom.pack(padx=20, pady=0)
+convfrm = CTkLabel(frame, text='', corner_radius=rad, font=cons)
+convfrm.pack(padx=20, pady=0)
+convfrmb = CTkButton(frame, text='Select file', corner_radius=rad, font=cons, command=filf)
+convfrmb.pack(padx=20, pady=0)
 paragraph(frame, "Convert to")
-convertto = CTkTextbox(frame, height=60, corner_radius=rad, font=cons)
-convertto.pack(padx=20, pady=0)
-space(frame, 10)
-geek1 = CTkButton(frame, text='Encode', command=encode, width=100, corner_radius=rad, font=consb, fg_color=hclr2, hover_color=hclr3)
+convto = CTkLabel(frame, text='', corner_radius=rad, font=cons)
+convto.pack(padx=20, pady=0)
+convtob = CTkButton(frame, text='Select file', corner_radius=rad, font=cons, command=filt)
+convtob.pack(padx=20, pady=0)
+space(frame, 20)
+geek1 = CTkButton(frame, text='Encode', command=encode, width=100, corner_radius=rad, font=cons, fg_color=hclr2, hover_color=hclr3)
 geek1.pack(padx=20, pady=0)
 space(frame, 10)
-geek2 = CTkButton(frame, text='Decode', command=decode, width=100, corner_radius=rad, font=consb, fg_color=hclr2, hover_color=hclr3)
+geek2 = CTkButton(frame, text='Decode', command=decode, width=100, corner_radius=rad, font=cons, fg_color=hclr2, hover_color=hclr3)
 geek2.pack(padx=20, pady=0) 
 space(frame, 10)
 
